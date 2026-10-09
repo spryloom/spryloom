@@ -1,0 +1,19 @@
+app:
+  name: Request Tracker
+  slug: requests
+  description: A small shared queue for submitting, assigning, and completing team requests.
+
+runtime:
+  frontend: none
+  backend: node
+  start: node server.js
+
+access:
+  visibility: invited
+  signin: [email_link]
+  admins: []
+
+data:
+  postgres: true
+  tables: [requests, comments]
+  uploads: false

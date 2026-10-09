@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "spryloom": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "spryloom@0.1.15",
+        "mcp"
+      ]
+    }
+  }
+}

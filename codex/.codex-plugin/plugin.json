@@ -1,0 +1,42 @@
+{
+  "name": "spryloom",
+  "version": "0.1.15",
+  "description": "Publish the app your agent just built to your team: a private address behind sign-in, with a database, scheduled jobs and email. No servers to set up.",
+  "author": {
+    "name": "Spryloom",
+    "email": "hello@spryloom.com",
+    "url": "https://spryloom.com"
+  },
+  "homepage": "https://spryloom.com/docs",
+  "repository": "https://github.com/spryloom/claude-plugin",
+  "license": "MIT",
+  "keywords": ["publish", "deploy", "internal-tools", "hosting", "team"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spryloom",
+    "shortDescription": "Publish apps to your team",
+    "longDescription": "Spryloom publishes the app you just built so your coworkers can use it, behind sign-in. Say \"share this with my team\" and the agent writes a small manifest, runs `spry publish`, and gives you a private address. Spryloom builds the app, gives it its own database if it needs one, and runs scheduled jobs and email when the app declares them. Coworkers you invite sign in with an emailed link; nobody else can open it.\n\nThe skill also guides the agent while it builds, so the app reads its port and settings from the environment, keeps data in Postgres and publishes the first time.\n\nWho it's for: anyone building internal tools, dashboards, reports or small team apps with an agent, who wants them used by their team without setting up hosting, a database or sign-in.\n\nLimitations: the skill uses the `spry` command line (the npm package `spryloom`), which needs Node.js 20.19 or later and network access. Signing in is a one-time emailed link that you approve yourself. Apps run Node.js or are static pages. File uploads aren't supported yet, and an app can reach only the outside services on Spryloom's list.",
+    "developerName": "Spryloom",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Publish an app or page to a private address behind sign-in",
+      "Write the app so it publishes the first time",
+      "Invite coworkers by email",
+      "Read an app's logs, restart it and roll it back",
+      "Set secrets, scheduled jobs and email for an app"
+    ],
+    "websiteURL": "https://spryloom.com",
+    "supportURL": "https://spryloom.com/docs/troubleshooting",
+    "privacyPolicyURL": "https://spryloom.com/privacy",
+    "termsOfServiceURL": "https://spryloom.com/terms",
+    "defaultPrompt": [
+      "Publish this app so my team can use it.",
+      "Share this report as a page only people I invite can open.",
+      "Invite priya@example.com to the app I just published."
+    ],
+    "brandColor": "#136A72",
+    "brandColorDark": "#46CCD8",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}
