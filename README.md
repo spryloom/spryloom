@@ -47,17 +47,19 @@ Finished apps to publish as they are, or to hand to your coding agent and make
 your own. Each runs locally against any Postgres, opens with example data
 you can remove in one click, and works in light and dark and on a phone.
 
-| Starter | For | What it does |
-|---|---|---|
-| [Weekly Status](examples/weekly-status/) | Project and team leads | Everyone answers three questions per project on Friday. Blockers and missing updates come first, and admins get a Monday summary. |
-| [Time Off](examples/time-off/) | Small companies | Request leave, approve it, see your balance, and see who's out on a team calendar. Weekends and company holidays aren't counted. |
-| [Tool Stack](examples/tool-stack/) | Teams paying for AI and SaaS tools | What the team pays for each month, what renews next, which seats sit unused, and requests for new tools. |
+| Starter | For | What it does | Live demo |
+|---|---|---|---|
+| [Weekly Status](examples/weekly-status/) | Project and team leads | Everyone answers three questions per project on Friday. Blockers and missing updates come first, and admins get a Monday summary. | [Try it](https://weekly-status.spryloom-com.spryloom.app) |
+| [Time Off](examples/time-off/) | Small companies | Request leave, approve it, see your balance, and see who's out on a team calendar. Weekends and company holidays aren't counted. | [Try it](https://time-off.spryloom-com.spryloom.app) |
+| [Tool Stack](examples/tool-stack/) | Teams paying for AI and SaaS tools | What the team pays for each month, what renews next, which seats sit unused, and requests for new tools. | [Try it](https://tools.spryloom-com.spryloom.app) |
 
 <p>
   <a href="examples/weekly-status/"><img src="examples/weekly-status/screenshots/this-week.png" width="32%" alt="Weekly Status"></a>
   <a href="examples/time-off/"><img src="examples/time-off/screenshots/calendar.png" width="32%" alt="Time Off"></a>
   <a href="examples/tool-stack/"><img src="examples/tool-stack/screenshots/overview.png" width="32%" alt="Tool Stack"></a>
 </p>
+
+The demos are shared by everyone who signs in, and go back to their example data every night.
 
 Publish one straight from GitHub:
 

@@ -1,5 +1,7 @@
 # Weekly Status
 
+**Live demo:** [weekly-status.spryloom-com.spryloom.app](https://weekly-status.spryloom-com.spryloom.app). Sign in with your email to try it as a member of the example team. Anyone who signs in shares the demo, and it goes back to the example data every night.
+
 The Monday status round-up, without the chasing. Each person answers three
 short questions per project they're on. The PM opens one page and sees the
 week: blockers first, who hasn't checked in, and which projects are slipping.

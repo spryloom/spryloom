@@ -1,5 +1,7 @@
 # Time Off
 
+**Live demo:** [time-off.spryloom-com.spryloom.app](https://time-off.spryloom-com.spryloom.app). Sign in with your email to try it as a member of the example team. Anyone who signs in shares the demo, and it goes back to the example data every night.
+
 Time off for a team of 10 to 50, without the spreadsheet. People ask for days
 off and see their own balance without asking anyone. An admin approves or
 declines with a reason, and everyone can see who is out this week.

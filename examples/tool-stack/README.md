@@ -1,5 +1,7 @@
 # Tool Stack
 
+**Live demo:** [tools.spryloom-com.spryloom.app](https://tools.spryloom-com.spryloom.app). Sign in with your email to try it as a member of the example team. Anyone who signs in shares the demo, and it goes back to the example data every night.
+
 One shared register of the AI and SaaS tools your team pays for: what each costs
 a month, who owns it, how many seats are bought and used, and when it renews.
 People ask for new tools here instead of in DMs, and an admin approves or
