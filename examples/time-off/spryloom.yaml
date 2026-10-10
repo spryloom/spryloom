@@ -1,0 +1,28 @@
+app:
+  name: Time Off
+  slug: time-off
+  description: Ask for time off, see your balance, and let an admin approve it, with a team calendar of who is out.
+
+runtime:
+  frontend: none
+  backend: node
+  start: node server.js
+
+access:
+  visibility: invited
+  signin: [email_link]
+  # Admins approve time off, set allowances and holidays. Add your approvers here.
+  admins: []
+
+data:
+  postgres: true
+  tables: [settings, people, allowances, holidays, requests, events, emails]
+  uploads: false
+
+jobs:
+  - name: approver-digest
+    command: node jobs/digest.js
+    schedule: "0 9 * * 1-5"
+    timezone: America/New_York
+
+email: true

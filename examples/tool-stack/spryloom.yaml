@@ -1,0 +1,29 @@
+app:
+  name: Tool Stack
+  slug: tools
+  description: The team's register of AI and SaaS tools, with monthly spend, renewals, unused seats and requests for new tools.
+
+runtime:
+  frontend: none
+  backend: node
+  start: node server.js
+
+access:
+  visibility: invited
+  signin: [email_link]
+  # Admins edit the register and approve requests. Add the people who look
+  # after spend, such as your ops or finance lead, here.
+  admins: []
+
+data:
+  postgres: true
+  tables: [settings, people, tools, tool_users, requests, events, emails]
+  uploads: false
+
+jobs:
+  - name: renewal-digest
+    command: node jobs/digest.js
+    schedule: "0 8 * * 1-5"
+    timezone: America/New_York
+
+email: true

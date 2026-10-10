@@ -41,6 +41,31 @@ spry publish .
 
 Then ask your agent: "Publish this so my team can use it."
 
+## Starters
+
+Finished apps to publish as they are, or to hand to your coding agent and make
+your own. Each runs locally against any Postgres, opens with example data
+you can remove in one click, and works in light and dark and on a phone.
+
+| Starter | For | What it does |
+|---|---|---|
+| [Weekly Status](examples/weekly-status/) | Project and team leads | Everyone answers three questions per project on Friday. Blockers and missing updates come first, and admins get a Monday summary. |
+| [Time Off](examples/time-off/) | Small companies | Request leave, approve it, see your balance, and see who's out on a team calendar. Weekends and company holidays aren't counted. |
+| [Tool Stack](examples/tool-stack/) | Teams paying for AI and SaaS tools | What the team pays for each month, what renews next, which seats sit unused, and requests for new tools. |
+
+<p>
+  <a href="examples/weekly-status/"><img src="examples/weekly-status/screenshots/this-week.png" width="32%" alt="Weekly Status"></a>
+  <a href="examples/time-off/"><img src="examples/time-off/screenshots/calendar.png" width="32%" alt="Time Off"></a>
+  <a href="examples/tool-stack/"><img src="examples/tool-stack/screenshots/overview.png" width="32%" alt="Tool Stack"></a>
+</p>
+
+Publish one straight from GitHub:
+
+```
+npx -y spryloom login --email you@yourcompany.com
+npx -y spryloom publish github.com/spryloom/spryloom/tree/main/examples/weekly-status
+```
+
 ## What's here
 
 | Folder | What it is |
@@ -55,7 +80,7 @@ Then ask your agent: "Publish this so my team can use it."
 | [`src/protocol/`](src/protocol/) | The requests the command line sends to Spryloom, and the answers it gets. |
 | [`src/detect/`](src/detect/) | Works out how an app runs when its manifest doesn't say. |
 | [`src/source/`](src/source/) | Packs a folder, a page or a GitHub repository for upload. |
-| [`examples/request-tracker/`](examples/request-tracker/) | A small app written for Spryloom, with roles and a database. |
+| [`examples/`](examples/) | The starters above, one folder each. |
 
 `src/` is the TypeScript the [`spryloom` npm package](https://www.npmjs.com/package/spryloom)
 is compiled from, so you can read what the MCP server does before you install

@@ -1,0 +1,37 @@
+app:
+  name: Weekly Status
+  slug: weekly-status
+  description: A short weekly check-in per project, and one page that shows the week, blockers and who is still missing first.
+
+runtime:
+  frontend: none
+  backend: node
+  start: node server.js
+
+access:
+  visibility: invited
+  signin: [email_link]
+  # Admins manage projects and who is on them, mark any blocker handled, and
+  # get Monday's summary email. You are an admin as the publisher; add the
+  # other PMs or team leads here.
+  admins: []
+
+data:
+  postgres: true
+  tables: [settings, people, projects, members, updates]
+  uploads: false
+
+# Spryloom sends at most 5 emails a day for an app. Each job sends one email
+# per person, most important first. Keep the time zone the same as the one
+# set on the app's Team page.
+jobs:
+  - name: friday-reminder
+    command: node jobs/remind.js
+    schedule: "0 14 * * 5"
+    timezone: America/New_York
+  - name: monday-summary
+    command: node jobs/summary.js
+    schedule: "0 9 * * 1"
+    timezone: America/New_York
+
+email: true

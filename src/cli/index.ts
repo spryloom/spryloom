@@ -19,11 +19,10 @@ import { colourEnabled, consoleOutput, type Output } from './ui.js';
 import { check, type ExitCode } from './commands/check.js';
 import { init } from './commands/init.js';
 import { skill } from './commands/skill.js';
-import { starter } from './commands/starter.js';
 import * as platform from './commands/platform.js';
 import { exportPageData, pageAccessLog, showPageData } from './commands/page-data.js';
 
-const VERSION = '0.1.16';
+const VERSION = '0.1.17';
 
 /**
  * A GitHub token, for publishing from a private repository.
@@ -70,8 +69,6 @@ Usage
   spry data log <page>                 Who read a page's data from outside it
   spry delete <app> <app>              Remove an app, its database and its data
 
-  spry starter                                      Starter apps you can copy and publish
-  spry starter request-tracker [folder]             Copy the request tracker, ready to publish
   spry init [folder] --description "what it does"   Write a spryloom.yaml for this app
   spry check [folder]                               Show what Spryloom sees, and whether it can publish
   spry whoami                                       Who this terminal is signed in as
@@ -107,6 +104,9 @@ Secrets
 
 Publishing from somewhere else
   spry publish github.com/you/app@branch   A branch, tag or commit. Also #branch.
+  spry publish github.com/you/repo/tree/main/apps/web
+                                           One folder of a repository, copied from the
+                                           address bar. Or github.com/you/repo/apps/web@main.
   GITHUB_TOKEN                             Set it to publish from a private repository.
                                            It reaches GitHub and nowhere else.
 
@@ -380,9 +380,6 @@ export async function run(argv: readonly string[], output: Output = consoleOutpu
     case 'check':
       return check(root, context);
 
-    case 'starter':
-      return starter(positionals[1], positionals[2], context);
-
     case 'skill':
       return skill(root, { ...(values.force === true && { force: true }) }, context);
 
@@ -430,7 +427,7 @@ export async function run(argv: readonly string[], output: Output = consoleOutpu
       output.err(`"${command}" is not a spry command.`);
       output.err('');
       output.err(
-        'Available: login, publish, apps, data, export, invite, uninvite, secrets, logs, jobs, rollback, restart, archive, restore, delete, domain, starter, init, check, skill, mcp, whoami, logout.',
+        'Available: login, publish, apps, data, export, invite, uninvite, secrets, logs, jobs, rollback, restart, archive, restore, delete, domain, init, check, skill, mcp, whoami, logout.',
       );
       output.err('Run `spry --help` for details.');
       return 2;

@@ -1,0 +1,9 @@
+{
+  "name": "spryloom-weekly-status",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js", "test": "node --test test/*.test.js" },
+  "dependencies": { "pg": "^8.13.1" }
+}

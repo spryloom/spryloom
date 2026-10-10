@@ -1,6 +1,7 @@
 {
-  "name": "spryloom-request-tracker-starter",
+  "name": "spryloom-tool-stack",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "engines": { "node": ">=20" },
   "scripts": { "start": "node server.js", "test": "node --test test/*.test.js" },

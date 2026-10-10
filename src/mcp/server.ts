@@ -71,7 +71,7 @@ export function createServer(context: ServerContext): McpServer {
       root: z
         .string()
         .describe(
-          'Where the app is: an absolute path to the folder, a path to a zip of it, a GitHub repository such as github.com/owner/repo (optionally with @branch), or one .html or .md file to publish as a page.',
+          'Where the app is: an absolute path to the folder, a path to a zip of it, a GitHub repository such as github.com/owner/repo (optionally with @branch), or one folder of one such as github.com/owner/repo/tree/main/apps/web, or one .html or .md file to publish as a page.',
         ),
       visibility: VISIBILITY.describe('Who should be able to use it.'),
       description: z
