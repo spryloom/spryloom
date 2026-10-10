@@ -66,6 +66,10 @@ per person, never one per project, and nothing lives only in an email.
 | `friday-reminder` | Fridays 2 pm | People not in yet | How many projects are waiting, with a button to the check-in |
 | `monday-summary` | Mondays 9 am | Admins first, then anyone still missing | Counts for the week (in, blocked, at risk, silent projects, open blockers), with a button to the week page |
 
+To change when they go out, change `schedule` in `spryloom.yaml` and publish
+again. The week page reads its times from there, so it always says when they
+really go.
+
 When more people are missing than there are emails left, those whose update
 would leave a project with nothing at all go first, then those missing the
 most projects, then those who missed the week before. On Monday the summary

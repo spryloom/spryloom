@@ -100,7 +100,7 @@ const empty = (icon, title, text, action = '') => `<div class="empty"><span clas
 
 /* ---------- This week ---------- */
 
-export function weekPage({ viewer, board, week, today, reporting, names, mine, isLead, lastWeekShown = 8 }) {
+export function weekPage({ viewer, board, week, today, reporting, names, mine, isLead, lastWeekShown = 8, emails = { reminder: 'Weekly reminder', summary: 'Weekly summary' } }) {
   const { counts } = board;
   const current = weekOf(today);
   const prev = addWeeks(week, -1);
@@ -180,8 +180,8 @@ export function weekPage({ viewer, board, week, today, reporting, names, mine, i
   const mail = `<section class="card side-card side-quiet side-mail">
     <div class="card-head"><h2>${ICON.mail}What gets emailed</h2></div>
     <ul class="mail-list">
-      <li><b>Friday, 2 pm</b><span>A reminder to each person not in yet, one email whatever the number of projects.</span></li>
-      <li><b>Monday, 9 am</b><span>The week's summary to admins, then a last reminder to anyone still missing.</span></li>
+      <li><b>${esc(emails.reminder)}</b><span>A reminder to each person not in yet, one email whatever the number of projects.</span></li>
+      <li><b>${esc(emails.summary)}</b><span>The week's summary to admins, then a last reminder to anyone still missing.</span></li>
     </ul>
     <p class="fine">Spryloom sends at most 5 emails a day for an app, so people who leave a project with no update at all are reminded first. Everything in an email is also here.</p>
   </section>`;

@@ -9,8 +9,11 @@ import {
   shortDay, validTimeZone, viewerOf, weekName, weekOf,
 } from './lib/rules.js';
 import { checkinPage, layout, notFound, projectForm, projectPage, projectsPage, teamPage, weekPage } from './lib/views.js';
+import { emailTimes } from './lib/schedule.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
+// When the emails go out, as spryloom.yaml schedules them (read once; publishing again restarts the app).
+const EMAIL_TIMES = emailTimes(join(here, 'spryloom.yaml'));
 const port = Number(process.env.PORT ?? 8080);
 const ASSETS = { '/assets/app.css': 'text/css; charset=utf-8', '/assets/app.js': 'text/javascript; charset=utf-8' };
 
@@ -114,7 +117,7 @@ const server = createServer(async (req, res) => {
       const done = data.updates.filter((u) => u.email === viewer.email && liveIds.has(String(u.project_id))).length;
       const isLead = data.projects.some((p) => p.lead === viewer.email);
       return page(week === reporting ? 'This week' : `Week of ${shortDay(week)}`, 'week',
-        weekPage({ viewer, board, week, today, reporting, names: await namesOf(), mine: { total, done }, isLead }));
+        weekPage({ viewer, board, week, today, reporting, names: await namesOf(), mine: { total, done }, isLead, emails: EMAIL_TIMES }));
     }
 
     /* ----- My check-in ----- */
