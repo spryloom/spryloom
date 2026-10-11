@@ -71,6 +71,7 @@ import {
   type PageAddress,
   type PageDataCall,
 } from './client.js';
+import { clientHeader } from './client-info.js';
 
 /** Long enough for a slow network, short enough that a hung request is not forever. */
 export const DEFAULT_TIMEOUT_MS = 30_000;
@@ -136,7 +137,7 @@ export interface HttpSpryloomClientOptions {
   readonly fetch?: typeof globalThis.fetch | undefined;
   /** Applies to every request except publish. */
   readonly timeoutMs?: number | undefined;
-  /** The calling spry's version, sent as `spry/<version>` (CLIENT_HEADER). */
+  /** The calling spry's version, sent as `spry/<version> (…)` (CLIENT_HEADER, D126). */
   readonly clientVersion?: string | undefined;
   /** How long to wait between reads of a running publish or delete. For tests. */
   readonly watchIntervalMs?: number | undefined;
@@ -673,7 +674,8 @@ export class HttpSpryloomClient implements SpryloomClient {
     const headers: Record<string, string> = { accept: 'application/json' };
     if (token !== undefined && token !== '') headers[AUTH_HEADER] = `${AUTH_SCHEME} ${token}`;
     if (options.contentType !== undefined) headers['content-type'] = options.contentType;
-    if (this.clientVersion !== undefined) headers[CLIENT_HEADER] = `spry/${this.clientVersion}`;
+    // `spry/<version>`, then how it is being used (D126): see client-info.ts.
+    if (this.clientVersion !== undefined) headers[CLIENT_HEADER] = clientHeader(this.clientVersion);
 
     try {
       return await this.fetchImpl(url, {

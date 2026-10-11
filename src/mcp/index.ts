@@ -43,3 +43,4 @@ export {
 } from './http-client.js';
 export { baseUrlFrom, saveSession, sessionPath, tokenFor, type SavedSession } from './session.js';
 export { serveOverStdio, type StdioOutcome } from './stdio.js';
+export { agentFrom, clientHeader, describeThisClient, installFrom, mcpClientIs, resetClientInfo, servingMcp } from './client-info.js';

@@ -510,6 +510,7 @@ export interface GatewayUsageAnswer {
 }
 
 export * from './notify.js';
+export * from './client.js';
 
 // ---------------------------------------------------------------------------
 // Paths
