@@ -37,3 +37,4 @@ export {
 } from './egress-registry.js';
 export { parseManifest, MANIFEST_FILENAME } from './parse.js';
 export { serializeManifest } from './serialize.js';
+export { FEATURES, summarizeManifest, type ManifestSummary } from './summary.js';

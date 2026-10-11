@@ -527,6 +527,8 @@ export const routes = {
   loginPoll: (requestId: string): string => `/api/v1/login/${encodeURIComponent(requestId)}`,
   loginApprove: (requestId: string): string =>
     `/api/v1/login/${encodeURIComponent(requestId)}/approve`,
+  /** The answer to "how did you find Spryloom?", once, after a first sign-in (D127). */
+  loginFound: (): string => '/api/v1/login/found',
   whoAmI: (): string => '/api/v1/me',
   secrets: (slug: string): string => `/api/v1/apps/${encodeURIComponent(slug)}/secrets`,
   secret: (slug: string, name: string): string =>
@@ -599,6 +601,7 @@ export const patterns = {
   loginStart: '/api/v1/login',
   loginPoll: '/api/v1/login/:requestId',
   loginApprove: '/api/v1/login/:requestId/approve',
+  loginFound: '/api/v1/login/found',
   whoAmI: '/api/v1/me',
   secrets: '/api/v1/apps/:slug/secrets',
   secret: '/api/v1/apps/:slug/secrets/:name',
@@ -651,3 +654,4 @@ export const errorCodes = {
 export const MIN_CLIENT_VERSION = '0.1.4';
 
 export type ErrorCode = (typeof errorCodes)[keyof typeof errorCodes];
+export * from './found.js';
